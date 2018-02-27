@@ -3,7 +3,8 @@ h1{
   /* color: rgb(103, 87, 87); */
   /* color: rgb(6, 106, 117); */
   /* color: rgb(0, 128, 128); */
-  color: dark green;
+  /* color: dark green; */
+  color: rgb(20, 77, 20);
 	padding: 2px 0 10px 0;
 	/* font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif; */
   font-family: 'Comic sans-serif';
@@ -11,4 +12,8 @@ h1{
 	font-weight: bold;
 	text-align: center;
 	padding-bottom: 30px;
+}
+
+.show {
+  display: block;
 }

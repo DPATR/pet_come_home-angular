@@ -1,0 +1,68 @@
+<!-- <p>
+  pet-index works!
+</p> -->
+<div id="container">
+  <!-- See Budget Box -->
+  <div id="wrapper">
+    <!-- See Budget Form -->
+    <div id="see-pets">
+      <!-- <div id="back">
+        <a routerLink="/home" class="back">Go Back</a>
+        <br>
+      </div> -->
+      <form>
+        <div *ngIf="petService.deletePetSuccess" class="success">
+          <h5>The pet has successfully been deleted.</h5>
+        </div>
+        <div *ngIf="petService.deletePetFailure" class="failure">
+          <h5>This pet could not be deleted.</h5>
+        </div>
+        <h1>All Pets</h1>
+        <div *ngIf="allPets.length === 0" class="msg">
+          <h4>There are no pets to display. Create a new pet to get started.</h4>
+        </div>
+
+        <div class="pets" id="pets-table">
+          <table *ngIf="allPets.length > 0">
+            <tr>
+              <th>Name</th>
+              <th>Breed</th>
+              <th>Color</th>
+              <th>Size</th>
+              <th>ChipTag</th>
+              <th>RabiesTag</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>LostDate</th>
+              <th>FoundDate</th>
+              <th>Description</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+            <tr *ngFor="let pet of allPets">
+              <td>{{pet.petName}}</td>
+              <td>{{pet.petBreed}}</td>
+              <td>{{pet.petColor}}</td>
+              <td>{{pet.petSize}}</td>
+              <td>{{pet.petChipTag}}</td>
+              <td>{{pet.petRabiesTag}}</td>
+              <td>{{pet.petType.petSpecies}}</td>
+              <td>{{pet.petStatus.petStatus}}</td>
+              <td>{{pet.petLostDate | date : "shortDate"}}</td>
+              <td>{{pet.petFoundDate | date : "shortDate"}}</td>
+              <td>{{pet.petDesc}}</td>
+              <td><a routerLink="/pet/edit/{{pet.petId}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+              <td><a (click)="deletePet(pet)"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+          </table>
+          <br>
+          <br>
+          <div id ="new">
+              <a class="btn" routerLink="/pet/new" class="btn btn-primary">Create A New Pet</a>
+          </div>
+        </div> <!--/ pets-->
+      </form>
+
+    </div> <!--/ see-pets-->
+  </div><!--/ wrapper-->
+</div><!--/ container-->

@@ -14,21 +14,21 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav pull-left">
         <!-- <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><a class="nav-link" routerLink="/home">Home</a></li> -->
-        <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><a class="nav-link" routerLink="/bill">Find All Pets</a></li>
+        <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><a class="nav-link" routerLink="/pet">Find All Pets</a></li>
         <!-- <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><a class="nav-link" routerLink="/auth/change-password">Change Password</a></li>
         <li><a><input class="btn-warning" (click)="signOut()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" type="submit" value="Sign Out"/></a></li> -->
       </ul>
     </div>
   </div>
 </nav>
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- If url is NOT the app.component page, do not show the Welcome message; driven by findLocation function & CSS display rule for app.component page -->
+<div [ngClass]="{'show': pageLocation==='/' }" style="text-align:center" hidden>
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <!-- <img width="600" src="assets/images/Puppies.jpeg" alt="image" > -->
 </div>
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1500">
+<!-- If url is NOT the app.component page, do not show the Carousel; driven by findLocation function & CSS display rule for app.component page -->
+<div [ngClass]="{'show': pageLocation==='/' }" id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000" hidden>
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -48,9 +48,6 @@
     </div>
     <div class="item">
       <img class="img-responsive center-block" width="600" src="assets/images/Cats.jpeg" alt="image">
-    </div>
-    <div class="item">
-      <img class="img-responsive center-block" width="600" src="assets/images/Dog2.jpeg" alt="image">
     </div>
     <div class="item">
       <img class="img-responsive center-block" width="600" src="assets/images/Dogs.jpeg" alt="image">
@@ -75,4 +72,4 @@
   </h1>
 </div> -->
 <!-- <app-login></app-login> -->
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
