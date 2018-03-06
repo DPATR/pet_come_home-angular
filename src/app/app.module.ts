@@ -11,6 +11,14 @@ import { PetModule } from './pet/pet.module';
 import { PetRoutingModule } from './pet/pet-routing.module';
 import { PetService } from './pet/pet.service';
 
+import { LocationModule} from './location/location.module';
+import { LocationRoutingModule } from './location/location-routing.module';
+import { LocationService } from './location/location.service';
+
+import { UserModule } from './user/user.module';
+import { UserRoutingModule } from './user/user-routing.module';
+import { UserService } from './user/user.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,9 +30,13 @@ import { PetService } from './pet/pet.service';
     HttpModule,
     AppRoutingModule,
     PetModule,
-    PetRoutingModule
+    PetRoutingModule,
+    LocationModule,
+    LocationRoutingModule,
+    UserModule,
+    UserRoutingModule
   ],
-  providers: [PetService],
+  providers: [PetService, LocationService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

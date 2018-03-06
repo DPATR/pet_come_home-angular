@@ -5,9 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { PetComponent } from './pet.component';
 import { PetIndexComponent } from './pet-index/pet-index.component';
+import { PetNewComponent } from './pet-new/pet-new.component';
 import { PetService } from './pet.service';
-
-
 
 @NgModule({
   imports: [
@@ -15,7 +14,7 @@ import { PetService } from './pet.service';
     RouterModule,
     FormsModule
   ],
-  declarations: [PetComponent, PetIndexComponent],
+  declarations: [PetComponent, PetIndexComponent, PetNewComponent],
   providers: [PetService]
 })
 export class PetModule { }

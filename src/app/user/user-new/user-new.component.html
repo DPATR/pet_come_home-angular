@@ -1,0 +1,51 @@
+<!-- <p>
+  user-new works!
+</p> -->
+<div id="container">
+  <!-- Create Location Box -->
+  <div id="wrapper">
+    <!-- Create Location Form -->
+    <div id="add-user">
+      <!-- <div id="back">
+        <a (click)="removeMessage()" routerLink="/bill" class="back">Go Back</a>
+        <br>
+      </div> -->
+        <form (ngSubmit)="saveUser(newUser)" ngNativeValidate>
+          <div *ngIf="userService.createUserSuccess" class="success">
+            <h5>The system user has successfully been added.</h5>
+          </div>
+          <div *ngIf="userService.createUserFailure" class="failure">
+            <h5>This new system user failed to be added.</h5>
+          </div>
+          <h1>New System User</h1>
+          <label for="userFirstName">First Name:</label><br>
+          <input name="userFirstName" [(ngModel)]="newUser.firstName" id="new-first-name" size="20" maxlength="20" placeholder="First Name" required/><br>
+          <br><label for="userLastName">Last Name:</label>
+          <input name="userLastname" [(ngModel)]="newUser.lastName" id="new-last-name" size="20" maxlength="20" placeholder="Last Name" required/><br>
+          <br><label for="userLogin">Login:</label>
+          <input name="userLogin" [(ngModel)]="newUser.login" id="new-login" size="20" maxlength="15" placeholder="Login" required/><br>
+          <br><label for="userPassword">Password:</label>
+          <input name="userPassword" [(ngModel)]="newUser.password" id="new-password" size="20" maxlength="15" placeholder="Password" required/><br>
+          <br><label for="userCity">City:</label><br>
+          <input name="userCity" [(ngModel)]="newUser.city" id="new-city" size="20" maxlength="20" placeholder="City" required/><br>
+          <br><label for="userState">State:</label>
+          <input name="userState" [(ngModel)]="newUser.state" id="new-state" size="20" maxlength="2" placeholder="State" required/><br>
+          <br><label for="userZip">Zip Code:</label>
+          <input name="userZip" [(ngModel)]="newUser.zip" id="new-zip" size="20" maxlength="5" placeholder="Zip Code"><br>
+          <br><label for="userEmail">Email Address:</label>
+          <input name="userEmail" [(ngModel)]="newUser.email" id="new-email" size="20" maxlength="20" placeholder="Email" required/><br>
+          <br><label for="userAltEmail">Alternate Email:</label>
+          <input name="userAltEmail" [(ngModel)]="newUser.altEmail" id="new-altEmail" size="20" maxlength="20" placeholder="Alternate Email"><br>
+          <br><label for="userMobile">Mobile Phone:</label>
+          <input name="userMobile" [(ngModel)]="newUser.mobile" id="new-mobile" size="20" maxlength="10" placeholder="Mobile Phone"><br>
+          <br><label for="userAltPhone">Alternate Phone:</label>
+          <input name="userAltPhone" [(ngModel)]="newUser.altPhone" id="new-altPhone" size="20" maxlength="10" placeholder="Alternate Phone"><br>
+          <br>
+          <br>
+          <p class="submit button">
+            <input type="submit" value="Add"/>
+          </p>
+        </form>
+      </div><!--/ create-user-->
+    </div><!--/ wrapper-->
+  </div><!--/ container-->

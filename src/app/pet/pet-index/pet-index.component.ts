@@ -17,11 +17,10 @@ export class PetIndexComponent implements OnInit {
     public petService: PetService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {  //removed to test Httpclient
     console.log('I am in the pet-index component module');
     this.petService.getAllPets()
     .subscribe(response => {
-      // this.allPets = response.json()['pets']
       this.allPets = response.json()
       console.log(this.allPets)
     });
