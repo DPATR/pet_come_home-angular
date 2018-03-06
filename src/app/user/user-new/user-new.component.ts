@@ -19,15 +19,6 @@ export class UserNewComponent implements OnInit {
   ngOnInit() {
   }
 
-  // userFirstName: newUser.userFirstName,
-  // userLastName: newUser.userLastName,
-  // userLogin: newUser.userLogin,
-  // userCity: newUser.userCity,
-  // userState: newUser.userState,
-  // userEmail: newUser.userEmail,
-  // userPassword: newUser.userPassword
-
-
   saveUser(newUser) {
     const firstName= <HTMLInputElement>document.getElementById('new-first-name')
     const lastName = <HTMLInputElement>document.getElementById('new-last-name')
