@@ -10,6 +10,7 @@ import { PetNewComponent } from './pet/pet-new/pet-new.component';
 import { LocationComponent } from './location/location.component';
 import { LocationIndexComponent } from './location/location-index/location-index.component';
 import { LocationNewComponent } from './location/location-new/location-new.component';
+import { LocationEditComponent } from './location/location-edit/location-edit.component';
 
 import { UserComponent } from './user/user.component';
 import { UserNewComponent } from './user/user-new/user-new.component';
@@ -39,14 +40,18 @@ const routes: Routes = [
     path: 'location',
     component: LocationComponent,
     children: [
-      // {
-      //   path: '',
-      //   component: LocationIndexComponent
-      // },
       {
-        //path: 'new',
         path: '',
+        component: LocationIndexComponent
+      },
+      {
+        path: 'new',
         component: LocationNewComponent
+      },
+      {
+        //path: 'edit',
+        path: 'edit/:id',
+        component: LocationEditComponent
       }
     ]
   },

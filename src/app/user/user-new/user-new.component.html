@@ -2,9 +2,9 @@
   user-new works!
 </p> -->
 <div id="container">
-  <!-- Create Location Box -->
+  <!-- Create User Box -->
   <div id="wrapper">
-    <!-- Create Location Form -->
+    <!-- Create User Form -->
     <div id="add-user">
       <!-- <div id="back">
         <a (click)="removeMessage()" routerLink="/bill" class="back">Go Back</a>
@@ -36,10 +36,12 @@
           <input name="userEmail" [(ngModel)]="newUser.email" id="new-email" size="20" maxlength="20" placeholder="Email" required/><br>
           <br><label for="userAltEmail">Alternate Email:</label><br>
           <input name="userAltEmail" [(ngModel)]="newUser.altEmail" id="new-altEmail" size="20" maxlength="20" placeholder="Alternate Email"><br>
+          <!-- <br><label for="userMobile">Mobile Phone:</label><br>
+          <input [textMask]="{mask: mask}" [(ngModel)]="newUser.mobile" type="text" name="userMobile" placeholder=""/><br> -->
           <br><label for="userMobile">Mobile Phone:</label><br>
-          <input name="userMobile" [(ngModel)]="newUser.mobile" id="new-mobile" size="20" maxlength="10" placeholder="Mobile Phone"><br>
+          <input name="userMobile" [(ngModel)]="newUser.mobile" id="new-mobile" size="20" maxlength="12" placeholder="(123) 456-7890"><br>
           <br><label for="userAltPhone">Alternate Phone:</label><br>
-          <input name="userAltPhone" [(ngModel)]="newUser.altPhone" id="new-altPhone" size="20" maxlength="10" placeholder="Alternate Phone"><br>
+          <input name="userAltPhone" [(ngModel)]="newUser.altPhone" id="new-altPhone" size="20" maxlength="12" placeholder="(123) 456-7890"><br>
           <br>
           <br>
           <p class="submit button">

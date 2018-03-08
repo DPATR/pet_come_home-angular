@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './location.component';
 import { LocationIndexComponent } from './location-index/location-index.component';
 import { LocationNewComponent } from './location-new/location-new.component';
+import { LocationEditComponent } from './location-edit/location-edit.component';
 import { LocationService } from './location.service';
 
 @NgModule({
@@ -14,7 +15,7 @@ import { LocationService } from './location.service';
     RouterModule,
     FormsModule
   ],
-  declarations: [LocationComponent, LocationIndexComponent, LocationNewComponent],
+  declarations: [LocationComponent, LocationIndexComponent, LocationNewComponent, LocationEditComponent],
   providers: [LocationService]
 })
 export class LocationModule { }

@@ -17,6 +17,7 @@ export class LocationNewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
 
   saveLocation(newLocation) {
@@ -26,7 +27,7 @@ export class LocationNewComponent implements OnInit {
     const newLong = <HTMLInputElement>document.getElementById('new-loc-long')
     const newName = <HTMLInputElement>document.getElementById('new-loc-name')
     const newState = <HTMLInputElement>document.getElementById('new-loc-state')
-    const newZip = <HTMLInputElement>document.getElementById('new-loc-newZip')
+    const newZip = <HTMLInputElement>document.getElementById('new-loc-zip')
 
     this.locationService.saveLocation(newLocation)
       .subscribe(
@@ -46,7 +47,7 @@ export class LocationNewComponent implements OnInit {
           newLong.value = ''
           newName.value = ''
           newState.value = ''
-          //newZip.value = ''
+          newZip.value = ''
         })
       }
 

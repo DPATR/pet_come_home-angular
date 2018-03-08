@@ -7,6 +7,7 @@ export class LocationService {
 
   createLocationFailure:  boolean;
   createLocationSuccess:  boolean;
+  updateLocationFailure:  boolean;
 
   //  CREATE TABLE IF NOT EXISTS PCH.LOCATION
   //  (
@@ -20,6 +21,14 @@ export class LocationService {
   //   LOC_ZIP VARCHAR(5) NULL,
   //   LOC_IND CHAR(1) NULL,
   //   PRIMARY KEY (LOC_Id)
+
+  getAllLocations() {
+    return this.http.get(environment.apiServer + '/find-all-pet-locations');
+  }
+
+  getOneLocation(locId) {
+    return this.http.get(environment.apiServer + '/find-location-by-id?locId=' + locId);
+  }
 
   saveLocation(newLocation) {
     var indicator = '1';
@@ -43,6 +52,32 @@ export class LocationService {
     }
     console.log('locCreateParams ' + JSON.stringify(locCreateParams));
     return this.http.post(environment.apiServer + '/saveLocation', locCreateParams);
+  }
+
+  updateLocation(updatedLocation) {
+    console.log('updatedLocation ' + JSON.stringify(updatedLocation));
+    var indicator = '1';
+    // const headers = new Headers(
+    //   {
+    //     'Content-Type': 'application/json'
+    //   });
+    // headers.append("Accept", 'application/json');
+    //console.log('headers = ' + JSON.stringify(headers))
+    let lat = updatedLocation.locLat;
+
+    const locUpdateParams = {
+      locId: updatedLocation.locId,
+      locLat: updatedLocation.locLat,
+      locLong: updatedLocation.locLong,
+      locName: updatedLocation.locName,
+      locDesc: updatedLocation.locDesc,
+      locState: updatedLocation.locState,
+      locCity: updatedLocation.locCity,
+      locZip: updatedLocation.locZip,
+      locInd: indicator
+    }
+    console.log('locUpdateParams ' + JSON.stringify(locUpdateParams));
+    return this.http.put(environment.apiServer + '/updateLocation', locUpdateParams);
   }
 
   constructor(private http: Http) { }

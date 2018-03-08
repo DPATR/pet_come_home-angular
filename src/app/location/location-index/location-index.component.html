@@ -1,3 +1,60 @@
-<p>
+<!-- <p>
   location-index works!
-</p>
+</p> -->
+<div id="container">
+  <!-- See Location Box -->
+  <div id="wrapper">
+    <!-- See Location Form -->
+    <div id="see-locations">
+      <!-- <div id="back">
+        <a routerLink="/home" class="back">Go Back</a>
+        <br>
+      </div> -->
+      <form>
+        <!-- <div *ngIf="locationService.deleteLocationSuccess" class="success">
+          <h5>The location has successfully been deleted.</h5>
+        </div> -->
+        <!-- <div *ngIf="locationService.deleteLocationFailure" class="failure">
+          <h5>This location could not be deleted.</h5>
+        </div> -->
+        <h1>All Locations</h1>
+        <div *ngIf="allLocations.length === 0" class="msg">
+          <h4>There are no locations to display. Create a new location to get started.</h4>
+        </div>
+
+        <div class="locations" id="locations-table">
+          <table *ngIf="allLocations.length > 0">
+            <tr>
+              <th>Location Name</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip Code</th>
+              <th>Description</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+            <tr *ngFor="let location of allLocations">
+              <td>{{location.locName}}</td>
+              <td>{{location.locCity}}</td>
+              <td>{{location.locState}}</td>
+              <td>{{location.locZip}}</td>
+              <td>{{location.locDesc}}</td>
+              <td>{{location.locLat}}</td>
+              <td>{{location.locLong}}</td>
+              <!-- <td><a routerLink="/location/edit/{{loc.locId}}"><span class="glyphicon glyphicon-edit"></span></a></td> -->
+              <td><a routerLink="/location/edit/{{location.locId}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+              <td><a (click)="deleteLocation(location)"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+          </table>
+          <br>
+          <br>
+          <div id ="new">
+              <a class="btn" routerLink="/location/new" class="btn btn-primary">Add a Location</a>
+          </div>
+        </div> <!--/ locations-->
+      </form>
+    </div> <!--/ see-locations-->
+  </div><!--/ wrapper-->
+</div><!--/ container-->

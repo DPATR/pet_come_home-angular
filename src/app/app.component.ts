@@ -8,16 +8,23 @@ interface GreetingResponse {
   content: string;
 }
 
+// added template:
 @Component({
   selector: 'app-root',
+  // template: `
+  //   <input [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text"/>
+  // `,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 
+//added public mask
 export class AppComponent implements OnInit {
 //export class AppComponent {
   title = 'Pet Come Home';
   pageLocation: string;
+  //mask: any[] = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  //public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   constructor(
     private router: Router

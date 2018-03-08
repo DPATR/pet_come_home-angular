@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+//import { TextMaskModule } from 'angular2-text-mask';
 
 import { PetModule } from './pet/pet.module';
 import { PetRoutingModule } from './pet/pet-routing.module';
@@ -35,6 +36,7 @@ import { UserService } from './user/user.service';
     LocationRoutingModule,
     UserModule,
     UserRoutingModule
+    //TextMaskModule
   ],
   providers: [PetService, LocationService, UserService],
   bootstrap: [AppComponent]
