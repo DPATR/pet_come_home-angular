@@ -11,12 +11,12 @@
         <br>
       </div> -->
       <form>
-        <!-- <div *ngIf="locationService.deleteLocationSuccess" class="success">
+        <div *ngIf="locationService.deleteLocationSuccess" class="success">
           <h5>The location has successfully been deleted.</h5>
-        </div> -->
-        <!-- <div *ngIf="locationService.deleteLocationFailure" class="failure">
+        </div>
+        <div *ngIf="locationService.deleteLocationFailure" class="failure">
           <h5>This location could not be deleted.</h5>
-        </div> -->
+        </div>
         <h1>All Locations</h1>
         <div *ngIf="allLocations.length === 0" class="msg">
           <h4>There are no locations to display. Create a new location to get started.</h4>

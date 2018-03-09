@@ -8,6 +8,8 @@ export class UserService {
   createUserFailure:  boolean;
   createUserSuccess:  boolean;
   updateUserFailure:  boolean;
+  deleteUserFailure:  boolean;
+  deleteUserSuccess:  boolean;
 
   getAllUsers() {
     return this.http.get(environment.apiServer + '/find-all-users');
@@ -15,6 +17,10 @@ export class UserService {
 
   getOneUser(userId) {
     return this.http.get(environment.apiServer + '/find-user-by-id?userId=' + userId);
+  }
+
+  deleteUser(user) {
+    return this.http.delete(environment.apiServer + '/delete-user-by-id?locId=' + user.userId)
   }
 
   // CREATE TABLE IF NOT EXISTS PCH.USER

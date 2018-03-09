@@ -8,6 +8,8 @@ export class LocationService {
   createLocationFailure:  boolean;
   createLocationSuccess:  boolean;
   updateLocationFailure:  boolean;
+  deleteLocationFailure:  boolean;
+  deleteLocationSuccess:  boolean;
 
   //  CREATE TABLE IF NOT EXISTS PCH.LOCATION
   //  (
@@ -28,6 +30,10 @@ export class LocationService {
 
   getOneLocation(locId) {
     return this.http.get(environment.apiServer + '/find-location-by-id?locId=' + locId);
+  }
+
+  deleteLocation(location) {
+    return this.http.delete(environment.apiServer + '/delete-location-by-id?locId=' + location.locId)
   }
 
   saveLocation(newLocation) {

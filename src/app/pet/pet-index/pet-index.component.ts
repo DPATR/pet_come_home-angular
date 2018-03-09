@@ -26,4 +26,20 @@ export class PetIndexComponent implements OnInit {
     });
   }
 
+  deletePet(deletedPet) {
+    this.petService.deletePet(deletedPet)
+    .subscribe(
+      response => {
+        let petIndex = this.allPets.indexOf(deletedPet);
+        this.allPets.splice(petIndex, 1);
+        this.petService.deletePetSuccess = true
+        this.petService.deletePetFailure = false
+      },
+      err => {
+        this.petService.deletePetSuccess = false
+        this.petService.deletePetFailure = true
+      }
+    );
+  }
+
 }

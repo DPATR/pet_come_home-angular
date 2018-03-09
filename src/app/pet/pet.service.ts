@@ -10,8 +10,8 @@ export class PetService {
 
   createPetFailure:  boolean;
   updatePetFailure:  boolean;
-  // deletePetFailure:  boolean;
-  // deletePetSuccess:  boolean;
+  deletePetFailure:  boolean;
+  deletePetSuccess:  boolean;
 
   getDate() {
     var today = new Date().toISOString().substring(0, 10);
@@ -24,6 +24,10 @@ export class PetService {
 
   getOnePet(petId) {
     return this.http.get(environment.apiServer + '/find-pet-by-id?petId=' + petId);
+  }
+
+  deletePet(pet) {
+    return this.http.delete(environment.apiServer + '/delete-pet-by-id?petId=' + pet.petId)
   }
 
 	//insert into PCH.pet values (1, 'Muffins', '233145', '233145', 'A pretty cat', 'Siamese', 'Medium', 'Gray', 'test', '2018-02-27', '2018-02-27', '2018-02-27', '2018-02-27', '2018-02-27', '1', '0', '1', '0');

@@ -26,4 +26,20 @@ export class UserIndexComponent implements OnInit {
     });
   }
 
+  deleteUser(deletedUser) {
+    this.userService.deleteUser(deletedUser)
+    .subscribe(
+      response => {
+        let userIndex = this.allUsers.indexOf(deletedUser);
+        this.allUsers.splice(userIndex, 1);
+        this.userService.deleteUserSuccess = true
+        this.userService.deleteUserFailure = false
+      },
+      err => {
+        this.userService.deleteUserSuccess = false
+        this.userService.deleteUserFailure = true
+      }
+    );
+  }
+
 }
