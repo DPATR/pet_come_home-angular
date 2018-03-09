@@ -9,7 +9,7 @@ import { UserComponent } from '../user/user.component';
 export class PetService {
 
   createPetFailure:  boolean;
-  // updatePetFailure:  boolean;
+  updatePetFailure:  boolean;
   // deletePetFailure:  boolean;
   // deletePetSuccess:  boolean;
 
@@ -20,6 +20,10 @@ export class PetService {
 
   getAllPets() {
     return this.http.get(environment.apiServer + '/find-all-pets');
+  }
+
+  getOnePet(petId) {
+    return this.http.get(environment.apiServer + '/find-pet-by-id?petId=' + petId);
   }
 
 	//insert into PCH.pet values (1, 'Muffins', '233145', '233145', 'A pretty cat', 'Siamese', 'Medium', 'Gray', 'test', '2018-02-27', '2018-02-27', '2018-02-27', '2018-02-27', '2018-02-27', '1', '0', '1', '0');
@@ -155,6 +159,121 @@ export class PetService {
 
     //console.log(JSON.stringify(petCreateParams))
     return this.http.post(environment.apiServer + '/savePet', petCreateParams);
+  }
+
+  updatePet(updatedPet) {
+    console.log('updatedPet ' + JSON.stringify(updatedPet));
+
+    const today = this.getDate();
+    console.log('in PetService, today = ' + today);
+    // console.log('newPet = ' + newPet);
+    var imgURL = 'test';
+    // Temp set status = 1 (FOUND)
+    var lostDate = updatedPet.petLostDate
+    var foundDate = updatedPet.petFoundDate
+    var sightedDate = updatedPet.petSightedDate
+    var modifiedDate = today
+    var status = 0
+    var type = 0
+    var label = ''
+    var loc = 0
+    // Temp set dates to current date until we have in the UI
+    console.log('petStatus = ' + updatedPet.petStatus)
+    switch (updatedPet.petStatus) {
+      case 'LOST':
+        lostDate = today;
+        status = 0;
+        break;
+      case 'FOUND':
+        foundDate = today;
+        status = 1;
+        break;
+      case 'SIGHTED':
+        sightedDate = today;
+        status = 2;
+        break;
+      case 'RETURNED':
+        status = 3;
+    }
+    console.log('petType = ' + updatedPet.petType)
+    switch (updatedPet.petType) {
+      case 'DOG':
+        type = 0;
+        label = 'Dog';
+        break;
+      case 'CAT':
+        type = 1;
+        label = 'Cat';
+        break;
+      case 'REPTILE':
+        type = 2;
+        label = 'Reptile';
+        break;
+      case 'FARM ANIMAL':
+        type = 3;
+        label = 'Farm Animal';
+        break;
+      case 'BIRD':
+        type = 4;
+        label = 'Bird';
+        break;
+      case 'OTHER':
+        type = 5;
+        label = 'Other';
+    }
+
+    const petUpdateParams = {
+      petId: updatedPet.petId,
+      petName: updatedPet.petName,
+      petChipTag: updatedPet.petChipTag,
+      petRabiesTag: updatedPet.petRabiesTag,
+      petDesc: updatedPet.petDesc,
+      petBreed: updatedPet.petBreed,
+      petSize: updatedPet.petSize,
+      petColor: updatedPet.petColor,
+      petImgUrl: imgURL,
+      petCreateDate: updatedPet.petCreateDate,
+      petModifiedDate: modifiedDate,
+      petLostDate: lostDate,
+      petFoundDate: foundDate,
+      petSightedDate: sightedDate,
+      "petType" : {
+        petTypeId: type,
+        petSpecies: label,
+        dropDownInd: true
+      },
+      "user" : {
+        userId: 1,
+        userFirstName: 'Denise',
+        userLastName: 'Patriquin',
+        userLogin: 'dpatr',
+        userState: 'NH',
+        userCity: 'Dover',
+        userMobile: '6032224545',
+        userEmail: 'dpatr@hotmail.com',
+        userAltPhone: '6032457676',
+        userAltEmail: 'dpatr@gmail.com',
+        userPassword: 'password',
+        userZip: '03801'
+      },
+      "petStatus" : {
+        petStatusId: status,
+        petStatus: updatedPet.petStatus
+      },
+      "location" : {
+        locId: 0,
+        locLat: 38.8977000,
+        locLong: -77.0365000,
+        locName: 'DogHOuse',
+        locDesc: 'where dogs get fleas',
+        locState: 'DC',
+        locCity: 'Washington',
+        locZip: '20500',
+        locInd: '1'
+      }
+    }
+    console.log('petUpdateParams ' + JSON.stringify(petUpdateParams));
+    return this.http.put(environment.apiServer + '/updatePet', petUpdateParams);
   }
 
   constructor(private http: Http) { } //removed to test Httpclient

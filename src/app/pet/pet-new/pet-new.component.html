@@ -16,7 +16,7 @@
           </div>
           <h1>Report a Pet</h1>
           <label for="petName">Name:</label><br>
-          <input name="petName" [(ngModel)]="newPet.petName" id="new-petName" placeholder="Pet Name" size="20"><br>
+          <input name="petName" [(ngModel)]="newPet.petName" id="new-petName" placeholder="Pet Name" size="20" maxlength="20"><br>
           <br><label for="petChipTag">Chip Tag:</label><br>
           <input name="petChipTag" [(ngModel)]="newPet.petChipTag" id="new-petChipTag" size="20" maxlength="10" placeholder="Pet Chip Tag"><br>
           <br><label for="petRabiesTag">Rabies Tag:</label><br>
@@ -31,7 +31,7 @@
           <input name="petColor" [(ngModel)]="newPet.petColor" id="new-petColor" size="20" maxlength="20" placeholder="Pet Color" required/><br>
           <br><label for="petType">Type:</label><br>
           <div>
-            <select name="petType" [(ngModel)]="newPet.petType" id="new-petType" width="20" maxlength="10" required>
+            <select name="petType" [(ngModel)]="newPet.petType" id="new-petType" width="20" maxlength="11" required>
               <option disabled selected value> -- Select a Pet Type -- </option>
               <option value="DOG">Dog</option>
               <option value="CAT">Cat</option>
@@ -45,8 +45,8 @@
           <input name="petType" [(ngModel)]="newPet.petType" id="new-petType" size="20" maxlength="10" placeholder="Pet Type" required/><br> -->
           <br><label for="petStatus">Status:</label>
           <div>
-            <select name="petStatus" [(ngModel)]="newPet.petStatus" id="new-petStatus" width="20" maxlength="10" required>
-              <option disabled selected value> -- Select a Pet Type -- </option>
+            <select name="petStatus" [(ngModel)]="newPet.petStatus" id="new-petStatus" width="20" maxlength="8" required>
+              <option disabled selected value> -- Select a Pet Status -- </option>
               <option value="LOST">Lost</option>
               <option value="FOUND">Found</option>
               <option value="SIGHTED">Sighted</option>
