@@ -8,6 +8,7 @@ import { UserComponent } from './user.component';
 import { UserNewComponent } from './user-new/user-new.component';
 import { UserService } from './user.service';
 import { UserIndexComponent } from './user-index/user-index.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { UserIndexComponent } from './user-index/user-index.component';
     FormsModule
   //  TextMaskModule
   ],
-  declarations: [UserComponent, UserNewComponent, UserIndexComponent],
+  declarations: [UserComponent, UserNewComponent, UserIndexComponent, UserEditComponent],
   providers: [UserService]
 })
 export class UserModule { }

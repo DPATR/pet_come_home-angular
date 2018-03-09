@@ -37,7 +37,7 @@ th {
   border-collapse: collapse;
   padding: 10px 8px 18px 8px;
   font-family: sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 100;
   text-align: center;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -50,7 +50,7 @@ td {
   padding: 5px 8px 5px 8px;
   font-family: sans-serif;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 14px;
   text-shadow: -1px, -1px, -1px rgba(0, 0, 0, 0.1);
   border-left: 1px solid #C1C3D1;
   border-right: 1px solid #C1C3D1;

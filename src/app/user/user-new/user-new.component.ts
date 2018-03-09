@@ -19,35 +19,42 @@ export class UserNewComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveUser(newUser) {
-    const firstName= <HTMLInputElement>document.getElementById('new-first-name')
-    const lastName = <HTMLInputElement>document.getElementById('new-last-name')
-    const login = <HTMLInputElement>document.getElementById('new-login')
-    const city = <HTMLInputElement>document.getElementById('new-city')
-    const state = <HTMLInputElement>document.getElementById('new-state')
-    const email = <HTMLInputElement>document.getElementById('new-email')
-    const password = <HTMLInputElement>document.getElementById('new-password')
+    saveUser(newUser) {
+      const newFirstName= <HTMLInputElement>document.getElementById('new-first-name')
+      const newLastName = <HTMLInputElement>document.getElementById('new-last-name')
+      const newLogin = <HTMLInputElement>document.getElementById('new-login')
+      const newCity = <HTMLInputElement>document.getElementById('new-city')
+      const newState = <HTMLInputElement>document.getElementById('new-state')
+      const newMobile = <HTMLInputElement>document.getElementById('new-mobile')
+      const newEmail = <HTMLInputElement>document.getElementById('new-email')
+      const newAltPhone = <HTMLInputElement>document.getElementById('new-altPhone')
+      const newAltEmail = <HTMLInputElement>document.getElementById('new-altEmail')
+      const newPassword = <HTMLInputElement>document.getElementById('new-password')
+      const newZip = <HTMLInputElement>document.getElementById('new-zip')
 
-    this.userService.saveUser(newUser)
-      .subscribe(
-        response => {
-          let data = response.json();
-          console.log(response.json());
-          this.userService.createUserFailure = false;
-          this.userService.createUserSuccess = true;
-          this.router.navigate(['user']);
-        },
-        err => {
-          this.userService.createUserFailure = true;
-          this.userService.createUserSuccess = false;
-          firstName.value = ''
-          lastName.value = ''
-          login.value = ''
-          city.value = ''
-          state.value = ''
-          email.value = ''
-          password.value = ''
-        })
-      }
+      this.userService.saveUser(newUser)
+        .subscribe(
+          response => {
+            let data = response.json();
+            console.log(response.json());
+            this.userService.createUserFailure = false;
+            this.userService.createUserSuccess = true;
+            this.router.navigate(['user']);
+          },
+          err => {
+            this.userService.createUserFailure = true;
+            this.userService.createUserSuccess = false;
+            newFirstName.value = ''
+            newLastName.value = ''
+            newLogin.value = ''
+            newCity.value = ''
+            newState.value = ''
+            newMobile.value = ''
+            newEmail.value = ''
+            newAltPhone.value = ''
+            newPassword.value = ''
+            newZip.value = ''
+          })
+        }
 
 }

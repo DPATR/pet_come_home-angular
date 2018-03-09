@@ -15,6 +15,7 @@ import { LocationEditComponent } from './location/location-edit/location-edit.co
 import { UserComponent } from './user/user.component';
 import { UserNewComponent } from './user/user-new/user-new.component';
 import { UserIndexComponent } from './user/user-index/user-index.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,10 @@ const routes: Routes = [
      {
         path: 'new',
         component: UserNewComponent
+     },
+     {
+        path: 'edit/:id',
+        component: UserEditComponent
      }
     ]
   }

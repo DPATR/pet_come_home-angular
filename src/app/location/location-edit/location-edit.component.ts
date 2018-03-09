@@ -56,6 +56,6 @@ export class LocationEditComponent implements OnInit {
         err => {
           this.locationService.updateLocationFailure = true;
         })
-      }
+    }
 
 }

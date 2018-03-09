@@ -7,9 +7,14 @@ export class UserService {
 
   createUserFailure:  boolean;
   createUserSuccess:  boolean;
+  updateUserFailure:  boolean;
 
   getAllUsers() {
     return this.http.get(environment.apiServer + '/find-all-users');
+  }
+
+  getOneUser(userId) {
+    return this.http.get(environment.apiServer + '/find-user-by-id?userId=' + userId);
   }
 
   // CREATE TABLE IF NOT EXISTS PCH.USER
@@ -31,20 +36,41 @@ export class UserService {
 
   saveUser(newUser) {
     const userCreateParams = {
-      userFirstName: newUser.firstName,
-      userLastName: newUser.lastName,
-      userLogin: newUser.login,
-      userState: newUser.state,
-      userCity: newUser.city,
-      userMobile: newUser.mobile,
-      userEmail: newUser.email,
-      userAltPhone: newUser.altPhone,
-      userAltEmail: newUser.altEmail,
-      userPassword: newUser.password,
-      userZip: newUser.zip
+      userFirstName: newUser.userFirstName,
+      userLastName: newUser.userLastName,
+      userLogin: newUser.userLogin,
+      userState: newUser.userState,
+      userCity: newUser.userCity,
+      userMobile: newUser.userMobile,
+      userEmail: newUser.userEmail,
+      userAltPhone: newUser.userAltPhone,
+      userAltEmail: newUser.userAltEmail,
+      userPassword: newUser.userPassword,
+      userZip: newUser.userZip
     }
-    //console.log('userCreateParams ' + JSON.stringify(userCreateParams));
+    console.log('userCreateParams ' + JSON.stringify(userCreateParams));
     return this.http.post(environment.apiServer + '/saveUser', userCreateParams);
+  }
+
+  updateUser(updatedUser) {
+    console.log('updateduser ' + JSON.stringify(updatedUser));
+
+    const userUpdateParams = {
+      userId: updatedUser.userId,
+      userFirstName: updatedUser.userFirstName,
+      userLastName: updatedUser.userLastName,
+      userLogin: updatedUser.userLogin,
+      userState: updatedUser.userState,
+      userCity: updatedUser.userCity,
+      userMobile: updatedUser.userMobile,
+      userEmail: updatedUser.userEmail,
+      userAltPhone: updatedUser.userAltPhone,
+      userAltEmail: updatedUser.userAltEmail,
+      userPassword: updatedUser.userPassword,
+      userZip: updatedUser.userZip
+    }
+    console.log('userUpdateParams ' + JSON.stringify(userUpdateParams));
+    return this.http.put(environment.apiServer + '/updateUser', userUpdateParams);
   }
 
   constructor(private http: Http) { }

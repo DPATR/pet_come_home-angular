@@ -1,0 +1,48 @@
+<!-- <p>
+  user-edit works!
+</p> -->
+<div id="container">
+  <!-- Edit User Box -->
+  <div id="wrapper">
+    <!-- Edit User Form -->
+    <div id="edit-user">
+      <!-- <div id="back">
+        <a (click)="removeMessage()" routerLink="/bill" class="back">Go Back</a>
+        <br>
+      </div> -->
+        <form (ngSubmit)="updateUser(updatedUser)" ngNativeValidate>
+          <div *ngIf="userService.updateUserFailure" class="failure">
+            <h5>This system user could not be updated.</h5>
+          </div>
+          <h1>Edit System User</h1>
+          <br><label for="userFirstName">First Name:</label><br>
+          <input name="userFirstName" [(ngModel)]="updatedUser.userFirstName" id="update-firstName" size="20" maxlength="20" required/><br>
+          <br><label for="userLastName">Last Name:</label><br>
+          <input name="userLastName" [(ngModel)]="updatedUser.userLastName" id="update-lastName" size="20" maxlength="20" required/><br>
+          <br><label for="userLogin">Login:</label><br>
+          <input name="userLogin" [(ngModel)]="updatedUser.userLogin" id="update-login" size="20" maxlength="15" required/><br>
+          <br><label for="userPassword">Password:</label><br>
+          <input name="userPassword" [(ngModel)]="updatedUser.userPassword" id="update-password" size="20" maxlength="15" required/><br>
+          <br><label for="userCity">City:</label><br>
+          <input name="userCity" [(ngModel)]="updatedUser.userCity" id="update-city" size="20" maxlength="20" required/><br>
+          <br><label for="userState">State:</label><br>
+          <input name="userState" [(ngModel)]="updatedUser.userState" id="update-state" size="20" maxlength="2" required/><br>
+          <br><label for="userZip">Zip Code:</label><br>
+          <input name="userZip" [(ngModel)]="updatedUser.userZip" id="update-zip" size="20" maxlength="5"><br>
+          <br><label for="userEmail">Email Address:</label><br>
+          <input name="userEmail" [(ngModel)]="updatedUser.userEmail" id="update-email" size="20" maxlength="20" required/><br>
+          <br><label for="userAltEmail">Alternate Email:</label><br>
+          <input name="userAltEmail" [(ngModel)]="updatedUser.userAltEmail" id="update-altEmail" size="20" maxlength="20"><br>
+          <br><label for="userMobile">Mobile Phone:</label><br>
+          <input name="userMobile" [(ngModel)]="updatedUser.userMobile" id="update-mobile" size="20" maxlength="14"><br>
+          <br><label for="userAltPhone">Alternate Phone:</label><br>
+          <input name="userAltPhone" [(ngModel)]="updatedUser.userAltPhone" id="update-altPhone" size="20" maxlength="14"><br>
+          <br>
+          <br>
+          <p class="submit button">
+            <input type="submit" value="Edit"/>
+          </p>
+        </form>
+      </div><!--/ edit-bill-->
+    </div><!--/ wrapper-->
+  </div><!--/ container-->
