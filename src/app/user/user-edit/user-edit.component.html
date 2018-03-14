@@ -6,10 +6,10 @@
   <div id="wrapper">
     <!-- Edit User Form -->
     <div id="edit-user">
-      <!-- <div id="back">
-        <a (click)="removeMessage()" routerLink="/bill" class="back">Go Back</a>
+      <div id="back">
+        <a (click)="removeMessage()" routerLink="/user" class="back">Go Back</a>
         <br>
-      </div> -->
+      </div>
         <form (ngSubmit)="updateUser(updatedUser)" ngNativeValidate>
           <div *ngIf="userService.updateUserFailure" class="failure">
             <h5>This system user could not be updated.</h5>

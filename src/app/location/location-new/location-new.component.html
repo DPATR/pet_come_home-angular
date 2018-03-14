@@ -6,10 +6,10 @@
   <div id="wrapper">
     <!-- Create Location Form -->
     <div id="add-location">
-      <!-- <div id="back">
-        <a (click)="removeMessage()" routerLink="/bill" class="back">Go Back</a>
+      <div id="back">
+        <a (click)="removeMessage()" routerLink="/location" class="back">Go Back</a>
         <br>
-      </div> -->
+      </div>
         <form (ngSubmit)="saveLocation(newLocation)" ngNativeValidate>
           <div *ngIf="locationService.createLocationSuccess" class="success">
             <h5>The location has successfully been created.</h5>

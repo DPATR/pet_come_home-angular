@@ -6,10 +6,10 @@
   <div id="wrapper">
     <!-- Edit Pet Form -->
     <div id="edit-pet">
-      <!-- <div id="back">
-        <a (click)="removeMessage()" routerLink="/bill" class="back">Go Back</a>
+      <div id="back">
+        <a (click)="removeMessage()" routerLink="/pet" class="back">Go Back</a>
         <br>
-      </div> -->
+      </div>
         <form (ngSubmit)="updatePet(updatedPet)" ngNativeValidate>
           <!-- <div *ngIf="petService.updatePetFailure" class="failure">
             <h5>This pet could not be updated.</h5>
@@ -31,29 +31,23 @@
           <input name="petColor" [(ngModel)]="updatedPet.petColor" id="update-color" size="20" maxlength="20" required/><br>
           <br><label for="petType">Type:</label><br>
           <div>
-            <!-- <select name="petType" [(ngModel)]="updatedPet.petType" value="{{petResults}}" id="update-type" width="20" maxlength="11" required> -->
-            <!-- <select name="petType" [(ngModel)]="updatedPet.petType" value="{{this.petResults}}" id="update-type" width="20" maxlength="11" required> -->
-            <select name="petType" [(ngModel)]="updatedPet.petType" [value]="this.petResults" id="update-type" width="20" maxlength="11" required>
-            <!-- <select name="petType" [(ngModel)]="{{this.petResults}}" id="update-type" width="20" maxlength="11" required> -->
-              <option disabled selected value> -- Select a Pet Type -- </option>
-              <!-- <option [ngValue]="CAT"></option> -->
-              <!-- <option value='result.petType.petSpecies'></option> -->
-              <option value="DOG">Dog</option>
-              <option value="CAT">Cat</option>
-              <option value="REPTILE">Reptile</option>
-              <option value="FARM ANIMAL">Farm Animal</option>
-              <option value="BIRD">Bird</option>
-              <option value="OTHER">Other</option>
+            <select name="petType" [(ngModel)]="updatedPet.petType" id="update-type" width="20" maxlength="11" required>
+              <option selected value>{{this.speciesResults}}</option>
+              <option *ngFor="let petType of allPetTypes" [ngValue]="petType">{{petType.petSpecies}}</option>
             </select>
           </div>
           <br><label for="petStatus">Status:</label><br>
           <div>
             <select name="petStatus" [(ngModel)]="updatedPet.petStatus" id="update-status" width="20" maxlength="8" required>
-              <option disabled selected value> -- Select a Pet Status -- </option>
-              <option value="LOST">Lost</option>
-              <option value="FOUND">Found</option>
-              <option value="SIGHTED">Sighted</option>
-              <option value="RETURNED">Returned</option>
+              <option selected value>{{this.statusResults}}</option>
+              <option *ngFor="let petStatus of allPetStatuses" [ngValue]="petStatus">{{petStatus.petStatus}}</option>
+            </select>
+          </div>
+          <br><label for="location.locId">Location:</label><br>
+          <div>
+            <select name="location.locId" [(ngModel)]="updatedPet.locId" id="update-petLoc" width="20" maxlength="20" required>
+              <option selected value>{{this.locationResults}}</option>
+              <option *ngFor="let location of allLocations" [ngValue]="location">{{location.locName}}</option>
             </select>
           </div>
           <br>

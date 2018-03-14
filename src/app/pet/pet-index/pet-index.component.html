@@ -37,6 +37,7 @@
               <th>FoundDate</th>
               <th>SightedDate</th>
               <th>Description</th>
+              <th>View</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -53,6 +54,7 @@
               <td>{{pet.petFoundDate | date : "shortDate"}}</td>
               <td>{{pet.petSightedDate | date : "shortDate"}}</td>
               <td>{{pet.petDesc}}</td>
+              <td><a routerLink="/pet/view/{{pet.petId}}"><span class="glyphicon glyphicon-zoom-in"></span></a></td>
               <td><a routerLink="/pet/edit/{{pet.petId}}"><span class="glyphicon glyphicon-edit"></span></a></td>
               <td><a (click)="deletePet(pet)"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>

@@ -30,6 +30,14 @@ export class PetService {
     return this.http.delete(environment.apiServer + '/delete-pet-by-id?petId=' + pet.petId)
   }
 
+  getAllPetTypes() {
+    return this.http.get(environment.apiServer + '/find-all-pet-types');
+  }
+
+  getAllPetStatuses() {
+    return this.http.get(environment.apiServer + '/find-all-pet-statuses');
+  }
+
 	//insert into PCH.pet values (1, 'Muffins', '233145', '233145', 'A pretty cat', 'Siamese', 'Medium', 'Gray', 'test', '2018-02-27', '2018-02-27', '2018-02-27', '2018-02-27', '2018-02-27', '1', '0', '1', '0');
   //PET_STATUS values (0, 'LOST'), (1, 'FOUND'), (2, 'SIGHTED'), (3, 'RETURNED')
   //PET_TYPE values (0, 'Dog', true), (1, 'Cat', true), (2, 'Reptile', true), (3, 'Farm Animal', false), (4, 'Bird', true), (5, 'Other', true);
@@ -54,63 +62,18 @@ export class PetService {
 
   savePet(newPet) {
     const today = this.getDate();
-    console.log('in PetService, today = ' + today);
-    // console.log('newPet = ' + newPet);
+    //console.log('in PetService, today = ' + today);
+    //console.log('newPet = ' + JSON.stringify(newPet));
     var imgURL = 'test';
     // Temp set status = 1 (FOUND)
     var lostDate = ''
     var foundDate = ''
     var sightedDate = ''
     var modifiedDate = ''
-    var status = 0
-    var type = 0
-    var label = ''
-    var loc = 0
-    // Temp set dates to current date until we have in the UI
-    console.log('petStatus = ' + newPet.petStatus)
-    switch (newPet.petStatus) {
-      case 'LOST':
-        lostDate = today;
-        status = 0;
-        break;
-      case 'FOUND':
-        foundDate = today;
-        status = 1;
-        break;
-      case 'SIGHTED':
-        sightedDate = today;
-        status = 2;
-        break;
-      case 'RETURNED':
-        status = 3;
-    }
-    console.log('petType = ' + newPet.petType)
-    switch (newPet.petType) {
-      case 'DOG':
-        type = 0;
-        label = 'Dog';
-        break;
-      case 'CAT':
-        type = 1;
-        label = 'Cat';
-        break;
-      case 'REPTILE':
-        type = 2;
-        label = 'Reptile';
-        break;
-      case 'FARM ANIMAL':
-        type = 3;
-        label = 'Farm Animal';
-        break;
-      case 'BIRD':
-        type = 4;
-        label = 'Bird';
-        break;
-      case 'OTHER':
-        type = 5;
-        label = 'Other';
-    }
+    //console.log('petStatus = ' + JSON.stringify(newPet.petStatus))
+    //console.log('petType = ' + JSON.stringify(newPet.petType))
 
+    // Temp set dates to current date until we have in the UI
     const petCreateParams = {
       petName: newPet.petName,
       petChipTag: newPet.petChipTag,
@@ -126,9 +89,9 @@ export class PetService {
       petFoundDate: today,
       petSightedDate: today,
       "petType" : {
-        petTypeId: type,
-        petSpecies: label,
-        dropDownInd: true
+        petTypeId: newPet.petType.petTypeId,
+        petSpecies: newPet.petType.petSpecies,
+        dropDownInd: newPet.petType.dropDownInd
       },
       "user" : {
         userId: 1,
@@ -145,19 +108,11 @@ export class PetService {
         userZip: '03801'
       },
       "petStatus" : {
-        petStatusId: status,
-        petStatus: newPet.petStatus
+        petStatusId: newPet.petStatus.petStatusId,
+        petStatus: newPet.petStatus.petStatus
       },
       "location" : {
-        locId: 0,
-        locLat: 38.8977000,
-        locLong: -77.0365000,
-        locName: 'DogHOuse',
-        locDesc: 'where dogs get fleas',
-        locState: 'DC',
-        locCity: 'Washington',
-        locZip: '20500',
-        locInd: '1'
+        locId: newPet.locId.locId
       }
     }
 
@@ -166,66 +121,20 @@ export class PetService {
   }
 
   updatePet(updatedPet) {
-    console.log('updatedPet ' + JSON.stringify(updatedPet));
-
     const today = this.getDate();
-    console.log('in PetService, today = ' + today);
-    // console.log('newPet = ' + newPet);
+    //console.log('in PetService, today = ' + today);
+    //console.log('updatedPet = ' + JSON.stringify(updatedPet));
     var imgURL = 'test';
-    // Temp set status = 1 (FOUND)
     var lostDate = updatedPet.petLostDate
     var foundDate = updatedPet.petFoundDate
     var sightedDate = updatedPet.petSightedDate
     var modifiedDate = today
-    var status = 0
-    var type = 0
-    var label = ''
-    var loc = 0
-    // Temp set dates to current date until we have in the UI
-    console.log('petStatus = ' + updatedPet.petStatus)
-    switch (updatedPet.petStatus) {
-      case 'LOST':
-        lostDate = today;
-        status = 0;
-        break;
-      case 'FOUND':
-        foundDate = today;
-        status = 1;
-        break;
-      case 'SIGHTED':
-        sightedDate = today;
-        status = 2;
-        break;
-      case 'RETURNED':
-        status = 3;
-    }
-    console.log('petType = ' + updatedPet.petType)
-    switch (updatedPet.petType) {
-      case 'DOG':
-        type = 0;
-        label = 'Dog';
-        break;
-      case 'CAT':
-        type = 1;
-        label = 'Cat';
-        break;
-      case 'REPTILE':
-        type = 2;
-        label = 'Reptile';
-        break;
-      case 'FARM ANIMAL':
-        type = 3;
-        label = 'Farm Animal';
-        break;
-      case 'BIRD':
-        type = 4;
-        label = 'Bird';
-        break;
-      case 'OTHER':
-        type = 5;
-        label = 'Other';
-    }
 
+    //console.log('petStatus = ' + JSON.stringify(updatedPet.petStatus))
+    //console.log('petType = ' + JSON.stringify(updatedPet.petType))
+    //console.log('location = ' + JSON.stringify(updatedPet.locId.locId))
+
+    // Temp set dates to current date until we have in the UI
     const petUpdateParams = {
       petId: updatedPet.petId,
       petName: updatedPet.petName,
@@ -242,9 +151,9 @@ export class PetService {
       petFoundDate: foundDate,
       petSightedDate: sightedDate,
       "petType" : {
-        petTypeId: type,
-        petSpecies: label,
-        dropDownInd: true
+        petTypeId: updatedPet.petType.petTypeId,
+        petSpecies: updatedPet.petType.petSpecies,
+        dropDownInd: updatedPet.petType.dropDownInd
       },
       "user" : {
         userId: 1,
@@ -261,19 +170,11 @@ export class PetService {
         userZip: '03801'
       },
       "petStatus" : {
-        petStatusId: status,
-        petStatus: updatedPet.petStatus
+        petStatusId: updatedPet.petStatus.petStatusId,
+        petStatus: updatedPet.petStatus.petStatus
       },
       "location" : {
-        locId: 0,
-        locLat: 38.8977000,
-        locLong: -77.0365000,
-        locName: 'DogHOuse',
-        locDesc: 'where dogs get fleas',
-        locState: 'DC',
-        locCity: 'Washington',
-        locZip: '20500',
-        locInd: '1'
+        locId: updatedPet.locId.locId
       }
     }
     console.log('petUpdateParams ' + JSON.stringify(petUpdateParams));

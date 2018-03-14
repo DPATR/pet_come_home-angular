@@ -23,6 +23,10 @@ const petRoutes: Routes = [
       {
         path: 'edit/:id',
         component: PetEditComponent
+      },
+      {
+        path: 'view/:id',
+        component: PetEditComponent
       }
     ]
   }

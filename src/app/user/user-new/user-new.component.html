@@ -6,10 +6,10 @@
   <div id="wrapper">
     <!-- Create User Form -->
     <div id="add-user">
-      <!-- <div id="back">
-        <a (click)="removeMessage()" routerLink="/bill" class="back">Go Back</a>
+      <div id="back">
+        <a (click)="removeMessage()" routerLink="/user" class="back">Go Back</a>
         <br>
-      </div> -->
+      </div>
         <form (ngSubmit)="saveUser(newUser)" ngNativeValidate>
           <div *ngIf="userService.createUserSuccess" class="success">
             <h5>The system user has successfully been added.</h5>

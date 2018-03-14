@@ -7,6 +7,7 @@ import { PetComponent } from './pet/pet.component';
 import { PetIndexComponent } from './pet/pet-index/pet-index.component';
 import { PetNewComponent } from './pet/pet-new/pet-new.component';
 import { PetEditComponent } from './pet/pet-edit/pet-edit.component';
+import { PetViewComponent } from './pet/pet-view/pet-view.component';
 
 import { LocationComponent } from './location/location.component';
 import { LocationIndexComponent } from './location/location-index/location-index.component';
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: 'edit/:id',
         component: PetEditComponent
+      },
+      {
+        path: 'view/:id',
+        component: PetViewComponent
       }
     ]
   },
