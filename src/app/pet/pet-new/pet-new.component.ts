@@ -73,6 +73,7 @@ export class PetNewComponent implements OnInit {
         newPetSize.value = ''
         newPetChipTag.value = ''
         newPetRabiesTag.value = ''
+        newPetType.value = ''
         newPetStatus.value = ''
         // newPetLostDate.value = ''
         // newPetFoundDate.value = ''

@@ -116,7 +116,7 @@ export class PetService {
       }
     }
 
-    //console.log(JSON.stringify(petCreateParams))
+    console.log(JSON.stringify(petCreateParams))
     return this.http.post(environment.apiServer + '/savePet', petCreateParams);
   }
 
@@ -177,7 +177,7 @@ export class PetService {
         locId: updatedPet.locId.locId
       }
     }
-    console.log('petUpdateParams ' + JSON.stringify(petUpdateParams));
+    //console.log('petUpdateParams ' + JSON.stringify(petUpdateParams));
     return this.http.put(environment.apiServer + '/updatePet', petUpdateParams);
   }
 
